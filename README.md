@@ -13,9 +13,13 @@ You can reuse this image like this in your dockerfile in your own buildout:
 
 <pre>
 FROM jfroche/plone:4.3
-ADD buildout.cfg /code
+ADD . /code/
+USER root
+RUN chown -R plone .
+USER plone
 RUN bin/buildout -Nv
-CMD /code/bin/instance console
+
+CMD /code/bin/instance fg
 EXPOSE 8080
 </pre>
 
