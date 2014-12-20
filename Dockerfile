@@ -4,9 +4,10 @@ FROM phusion/baseimage:0.9.13
 RUN apt-get -qy update && apt-get -qy install ruby python-pip python-dev git-core python-virtualenv libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN useradd plone -d /code -s /bin/bash
-ADD . /code
-RUN chown plone code
+RUN useradd -d /code -s /bin/bash plone
+RUN mkdir /code
+COPY . /code
+RUN chown plone /code
 USER plone
 WORKDIR /code
 RUN virtualenv .
