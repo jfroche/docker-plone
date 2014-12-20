@@ -17,4 +17,5 @@ RUN bin/buildout
 ENV HOME /code
 CMD /code/bin/instance fg
 EXPOSE 8080
-VOLUME ["/code", "/code/src", "/code/var/blobstorage", "/code/var/filestorage"]
+
+VOLUME ["/code/var/blobstorage", "/code/var/filestorage"]
