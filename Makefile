@@ -1,2 +1,2 @@
 build:
-	docker build --no-cache -t jfroche/plone:4.3-onbuild .
+	docker build -t jfroche/plone:4.3-onbuild .
