@@ -1,4 +1,4 @@
-FROM jfroche/plone:4.3
+FROM jfroche/plone:5.0
 
 ONBUILD COPY . /code/
 ONBUILD USER root
