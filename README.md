@@ -29,13 +29,20 @@ How to reuse this image
 
 You can reuse this image like this in your Dockerfile in your own buildout directory.
 
+We use the `ONBUILD` instruction (https://docs.docker.com/reference/builder/#onbuild) to avoid duplication and push reproducability. Here are the instructions that will be executed uppon build if you depend (FROM) on this image:
+
 <pre>
-FROM jfroche/plone:4.3
-COPY . /code/
+ADD . /code/
 USER root
 RUN chown -R plone .
 USER plone
-RUN bin/buildout -Nv
+RUN bin/buildout -N
+</pre>
+
+You can reuse this image like this in your Dockerfile in your own buildout directory.
+
+<pre>
+FROM jfroche/plone:4.3
 </pre>
 
 Buildout is installed in /code
@@ -43,7 +50,7 @@ Buildout is installed in /code
 This will push your code in the container (with correct permissions) and start a buildout
 based on the buildout created in our image (cf https://github.com/jfroche/docker-plone/blob/4.3/buildout.cfg) and you will avoid downloading all plone packages.
 
-To simplify even more your Dockerfile check the 4.3-onbuild branch (https://github.com/jfroche/docker-plone/tree/4.3-onbuild) or image (FROM jfroche/plone:4.3-onbuild)
+To be more explicit in your Dockerfile check the 4.3 branch (https://github.com/jfroche/docker-plone/tree/4.3) or image (FROM jfroche/plone:4.3)
 which use ONBUILD instructions (https://docs.docker.com/reference/builder/#onbuild).
 
 This image is not meant for production. We are building other images based on Relstorage for that.
