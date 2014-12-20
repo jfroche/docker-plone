@@ -42,7 +42,7 @@ RUN bin/buildout -N
 You can reuse this image like this in your Dockerfile in your own buildout directory.
 
 <pre>
-FROM jfroche/plone:4.3
+FROM jfroche/plone:4.3-onbuild
 </pre>
 
 Buildout is installed in /code
