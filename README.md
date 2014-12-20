@@ -11,7 +11,7 @@ You can reuse this image like this in your Dockerfile in your own buildout direc
 
 <pre>
 FROM jfroche/plone:4.3
-ADD . /code/
+COPY . /code/
 USER root
 RUN chown -R plone .
 USER plone
