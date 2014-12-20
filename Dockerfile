@@ -14,6 +14,7 @@ RUN virtualenv .
 RUN python2.7 bootstrap.py --setuptools-version=7.0 --version=2.2.5
 RUN bin/buildout
 
+ENV HOME /code
 CMD /code/bin/instance fg
 EXPOSE 8080
 VOLUME ["/code", "/code/src", "/code/var/blobstorage", "/code/var/filestorage"]
