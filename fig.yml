@@ -1,0 +1,21 @@
+dbstorage:
+  image: jfroche/postgresql-plone
+  command: echo "creating"
+db:
+  image: jfroche/postgresql-plone
+  volumes_from: 
+    - dbstorage
+  volumes:
+    - db:/backup
+  environment:
+    - USER=plone
+    - DB=plone_zodb
+    - PASS=ploneadmin
+  ports:
+    - "5432:5432"
+web:
+  image: jfroche/plone:4.3-relstorage
+  ports:
+    - "8080:8080"
+  links:
+    - db
