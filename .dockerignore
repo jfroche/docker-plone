@@ -2,3 +2,4 @@
 Makefile
 filestorage
 blobstorage
+*.tar
