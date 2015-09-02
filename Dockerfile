@@ -13,7 +13,7 @@ WORKDIR /code
 RUN python2.4 bootstrap.py
 RUN bin/buildout
 USER root
-RUN apt-get remove -y g++-4.8 gcc-4.8 cpp-4.8 perl perl-modules
+RUN apt-get remove -y perl perl-modules
 USER plone
 ENV HOME /code
 CMD /code/bin/instance fg
