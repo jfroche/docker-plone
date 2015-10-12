@@ -3,3 +3,4 @@ build:
 clean:
 	rm -f filestorage/*
 	rm -fr blobstorage/*
+	rm *.tar
