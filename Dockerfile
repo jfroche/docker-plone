@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.13
+FROM phusion/baseimage:0.9.17
 
 # install system packages
 RUN apt-get -qy update && apt-get -qy install ruby python-pip python-dev git-core python-virtualenv libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev
